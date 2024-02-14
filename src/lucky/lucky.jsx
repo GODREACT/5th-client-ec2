@@ -7,7 +7,7 @@ import { API_URL } from '../config/config';
 
 
 async function getLucky() {
-  const res = await axios.get(`${API_URL}/lucky`);
+  const res = await axios.get(`${API_URL}/api/lucky`);
   console.log(res,"1");
   return res.data;
 }
@@ -25,7 +25,7 @@ const TodayFortune = () => {
 
   const getFortunesFromDatabase = async () => {
     try {
-      const response = await axios.get(`${API_URL}/lucky`);
+      const response = await axios.get(`${API_URL}/api/lucky`);
       return response.data; // API 응답이 운세 객체 배열인 것으로 가정합니다.
     } catch (error) {
       console.error("운세 데이터를 불러오는 중 오류 발생", error);

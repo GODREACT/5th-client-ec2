@@ -10,7 +10,7 @@ const UserSummary = () => {
   const [ user, setUser ] = useState('');
 
   useEffect(() => {
-    axios.get(`${API_URL}/user/data/${id}`)
+    axios.get(`${API_URL}/api/user/data/${id}`)
       .then((res) => {
         console.log(res.data);
         setUser(res.data);

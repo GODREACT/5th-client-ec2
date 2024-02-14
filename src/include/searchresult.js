@@ -14,7 +14,7 @@ function SearchComponent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/search/${keyword}`);
+        const response = await axios.get(`${API_URL}/api/search/${keyword}`);
         setSearchResults(response.data.htmlItems);
       } catch (error) {
         console.error('검색 결과를 가져오는 중 오류 발생:', error);

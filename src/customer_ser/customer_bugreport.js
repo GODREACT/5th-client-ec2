@@ -49,7 +49,7 @@ function Customer_bugreport (){
     console.log("폼데이터",formData);
     
 
-    await axios.post(`${API_URL}/bug/`, formData)
+    await axios.post(`${API_URL}/api/bug/`, formData)
     
     .then(res=>{
       
@@ -63,7 +63,7 @@ function Customer_bugreport (){
       }
       
 
-      axios.post(`${API_URL}/bug/resend`,data)
+      axios.post(`${API_URL}/api/bug/resend`,data)
       .then(async (res)=>{
         console.log("재송신",res);
         alert('신고가 접수되었습니다. 감사합니다!');

@@ -16,7 +16,7 @@ const GoogleLoginButton = () => {
           width={'350px'}
           height={'55px'}
           onSuccess={async (res) => {
-            await axios.post(`${API_URL}/auth/googlelogin`, { token: res.credential }, { withCredentials: true })
+            await axios.post(`${API_URL}/api/auth/googlelogin`, { token: res.credential }, { withCredentials: true })
               .then((result) => {
                 console.log(res.status);
                 if (result.status=200) {

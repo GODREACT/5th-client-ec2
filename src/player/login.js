@@ -6,7 +6,7 @@ import { API_URL } from "../config/config";
 import Kakao from "./kakao";
 import { getCookie } from "./cookies";
 import Google from "./snsLogin";
-const cookie = getCookie('loginCookie');
+const cookie = getCookie('user-cookie');
 const LoginForm = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
           pw_css.current.style.setProperty('border', '1px solid red')
           setContext('아이디 또는 비밀번호를 입력해주세요 !');
         }
-        await axios.post(`${API_URL}/auth/login`, { email: email, password: password}, { withCredentials: true })
+        await axios.post(`${API_URL}/api/auth/login`, { email: email, password: password}, { withCredentials: true })
         .then((res) => {
           if(res.data == '1') {
             alert('로그인 성공');

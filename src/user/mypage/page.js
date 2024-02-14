@@ -18,8 +18,8 @@ const CoinPage = () => {
   useEffect(() => {
     const getUser = async () => {
       let coinData = null
-      const res = await axios.get(`${API_URL}/user/data/${id}`)
-      const coin = await axios.get(`${API_URL}/user/wallet/get/${res.data.wallet_code}`);
+      const res = await axios.get(`${API_URL}/api/user/data/${id}`)
+      const coin = await axios.get(`${API_URL}/api/user/wallet/get/${res.data.wallet_code}`);
       // console.log(res.data);
       if(coin) {
         coinData = coin.data.map(c => {

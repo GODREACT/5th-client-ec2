@@ -13,13 +13,13 @@ const KakaoLoginButton =()=>{
     // console.log(data)
     const access_token = data.response.access_token;  // 엑세스 토큰 백엔드로 전달
 
-    const res = await axios.post(`${API_URL}/kakao`, {access_token});
+    const res = await axios.post(`${API_URL}/api/kakao`, {access_token});
     kakaoLogin(res.data);
   }
 
   const kakaoLogin = async (userData) => {
 		console.log("kakaoLogin(): ", userData);
-		const res = await axios.post(`${API_URL}/auth/kakaologin`, {userData}, { withCredentials: true });
+		const res = await axios.post(`${API_URL}/api/auth/kakaologin`, {userData}, { withCredentials: true });
 		console.log(res.data,userData.properties.nickname);
 
 		if(res.status == 200){
@@ -47,7 +47,7 @@ const KakaoLoginButton =()=>{
               onClick();
             }}
           >
-           <img src="../img/kakao.png" id="kakaoimg"/>
+           <img src={API_URL + "/img/kakao.png"} id="kakaoimg"/>
           </div>
         )}
       />

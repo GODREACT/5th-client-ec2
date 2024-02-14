@@ -77,14 +77,14 @@ const SignUpForm = () => {
           };
 
           try {
-            const res = await axios.post(`${API_URL}/auth/join`, data);
+            const res = await axios.post(`${API_URL}/api/auth/join`, data);
             if (res.data === 'success') {
               alert('회원가입을 축하드립니다 !');
               navigate('/login');
             } else if (res.data === 'fail') {
               alert('이미 가입한 이메일입니다.');
             }
-            await axios.post(`${API_URL}/auth/join`, data)
+            await axios.post(`${API_URL}/api/auth/join`, data)
               .then(res => {
                 if(res.data == 'success') {
                   alert('회원가입을 축하드립니다 !');

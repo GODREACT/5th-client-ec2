@@ -23,7 +23,7 @@ const scrollStyle = {
 const ModalWrapper = styled(Dialog)``;
 
 const htmlboard = async (id) => {
-  const res = await axios.get(`${API_URL}/htmlreview/${id}`);
+  const res = await axios.get(`${API_URL}/api/htmlreview/${id}`);
   console.log(res);
   return res.data;
 }
@@ -118,7 +118,7 @@ function Htmlreview(props) {
     setShowModal(true);
     // setEditMode(false); // 주석 처리
     try {
-      await axios.patch(`${API_URL}/html/increase-views/${row.id}`);
+      await axios.patch(`${API_URL}/api/html/increase-views/${row.id}`);
     } catch (error) {
       console.error('Error updating views:', error);
     }
@@ -143,7 +143,7 @@ function Htmlreview(props) {
         content: editedContent,
       };
 
-      await axios.patch(`${API_URL}/htmlreview/update/${selectedRow.id}`, data);
+      await axios.patch(`${API_URL}/api/htmlreview/update/${selectedRow.id}`, data);
       console.log("보냄");
       setEditMode(false); // Add this line to disable edit mode after submit
       window.location.reload();
@@ -251,7 +251,7 @@ function Htmlreview(props) {
                           <button
                             id='submit_btn'
                             onClick={async () => {
-                              await axios.delete(`${API_URL}/htmlreview/delete/${selectedRow.id}`)
+                              await axios.delete(`${API_URL}/api/htmlreview/delete/${selectedRow.id}`)
                                 .then(res => {
                                   console.log(res.data);
                                   window.location.reload();

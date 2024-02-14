@@ -28,10 +28,10 @@ const Loading = () => {
     localStorage.setItem('code', code);
     localStorage.setItem('state', state);
 
-			const callbackRes = await axios.get(`${API_URL}/test/callback?code=${code}&state=${state}`);
+			const callbackRes = await axios.get(`${API_URL}/api/test/callback?code=${code}&state=${state}`);
 			console.log("callbackRes: ", callbackRes);
 
-			const memberRes = await axios.get(`${API_URL}/test/member?access_token=${callbackRes.data.access_token}`);
+			const memberRes = await axios.get(`${API_URL}/api/test/member?access_token=${callbackRes.data.access_token}`);
 			console.log("memberRes: ", memberRes);
 
 			await axios.post(`${API_URL}/auth/naverlogin`, memberRes.data.response, {withCredentials: true })
