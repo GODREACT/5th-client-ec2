@@ -6,7 +6,7 @@ import { API_URL } from "../config/config";
 import useAsync from '../customHook/useAsync';
 //
 async function getNoticedetail(id) {
-  const res = await axios.get(`${API_URL}/notice_detail/${id}`);
+  const res = await axios.get(`${API_URL}/api/notice_detail/${id}`);
   console.log('왔움')
   console.log(res.data);
   return res.data;

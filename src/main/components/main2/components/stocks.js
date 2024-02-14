@@ -1,5 +1,6 @@
 import React from 'react';
 import './stocks.css';
+import { API_URL } from '../../../../config/config';
 
 
 export default function Stocks() {
@@ -7,10 +8,10 @@ export default function Stocks() {
   return(
     <div id="stocks-box">
       <div className="stocks-top-box">
-        <img src="/main/coin01.png" alt="img" />
+        <img src={API_URL + "/main/coin01.png"} alt="img" />
       </div>
       <div className="stocks-top-box">
-      <img src="/main/coin02.png" alt="img" />
+        <img src={API_URL + "/main/coin02.png"} alt="img" />
       </div>
       <div className="stocks-bottom-box">
         <span className='stock-bottom-text'>BitCoin</span>

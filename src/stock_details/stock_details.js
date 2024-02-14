@@ -8,7 +8,7 @@ import useAsync from '../customHook/useAsync';
 
 async function getStockdetail(code) {
   console.log("code",code);
-  const res = await axios.get(`${API_URL}/stock_detail/${code}`);
+  const res = await axios.get(`${API_URL}/api/stock_detail/${code}`);
   console.log('stockdetail왔음');
   console.log(res.data);
   return res.data;

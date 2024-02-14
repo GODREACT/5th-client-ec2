@@ -24,7 +24,7 @@ function Htmlreview_p(props) {
 
   const handleAdd = async () => {
     try {
-      await axios.post(`${API_URL}/htmlreview`, newData);
+      await axios.post(`${API_URL}/api/htmlreview`, newData);
       console.log('성공');
       window.location.reload(); // "완료" 버튼 클릭 시 페이지 리로드
     } catch (err) {

@@ -255,14 +255,14 @@ const fnAsk = (coin, askCoin, code) => {
         if (list.code === askCoin.code) {
           list.totalPrice += askCoin.totalPrice;
           list.volume += askCoin.volume;
-          axios.patch(`${API_URL}/user/wallet/moreask/${code}`, list);
+          axios.patch(`${API_URL}/api/user/wallet/moreask/${code}`, list);
           return list;
         } else {
           return list;
         }
       });
     } else {
-      axios.post(`${API_URL}/user/wallet/ask/${code}`, askCoin);
+      axios.post(`${API_URL}/api/user/wallet/ask/${code}`, askCoin);
       return coin.concat(askCoin);
     }
   }
@@ -285,7 +285,7 @@ const fnBid = (state, bidCoin) => {
       const data = {
         cash : state.cash + bidCoin.totalPrice
       }
-      axios.patch(`${API_URL}/user/bid/${state.id}`, data);
+      axios.patch(`${API_URL}/api/user/bid/${state.id}`, data);
       return {
         cash: (state.cash + bidCoin.totalPrice),
         coin: state.coin.reduce((acc, cur) => {
@@ -293,10 +293,10 @@ const fnBid = (state, bidCoin) => {
             if (cur.volume !== bidCoin.volume) {
               cur.volume -= bidCoin.volume;
               cur.totalPrice -= bidCoin.totalPrice;
-              axios.patch(`${API_URL}/user/wallet/bid/${state.wallet_code}`, cur);
+              axios.patch(`${API_URL}/api/user/wallet/bid/${state.wallet_code}`, cur);
               acc.push(cur);
             } else if(cur.volume === bidCoin.volume) {
-              axios.delete(`${API_URL}/user/wallet/delete/${state.wallet_code}`, {
+              axios.delete(`${API_URL}/api/user/wallet/delete/${state.wallet_code}`, {
                 data : bidCoin });
             }
           } else {
@@ -334,7 +334,7 @@ function userReducer(state, action) {
         const askData = {
           balance: state.cash - action.data.coin.totalPrice,
         }
-        axios.patch(`${API_URL}/user/ask/${action.data.id}`, askData);
+        axios.patch(`${API_URL}/api/user/ask/${action.data.id}`, askData);
         console.log(state.coin);
         console.log(state.wallet_code);
         return {

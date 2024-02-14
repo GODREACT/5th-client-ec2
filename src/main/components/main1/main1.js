@@ -1,6 +1,7 @@
 import React from 'react';
 import './main1.css'
-
+import { API_URL } from '../../../config/config';
+// import asd from '../images/main-bg.jpg';
 export default function Main1() {
   
 
@@ -8,7 +9,8 @@ export default function Main1() {
     <div id="main1-container">
       <div id="main1-box-container">
         <div className="main-left-box">
-          <img src="/main/main1-img.png" alt="img" />
+          <img src={API_URL + "/main/main1-img.png"} alt="img" />
+          {/* <img src={asd}/> */}
         </div>
         <div className="main-right-box">
           <p><b>쩐의 전쟁</b>은 가상 자본을 활용한 모의투자 플랫폼으로<br/>실제 주식 시장과 유사한 환경에서 투자를 체험할 수 있습니다.<br/>

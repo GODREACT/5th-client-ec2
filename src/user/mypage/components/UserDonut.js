@@ -13,7 +13,7 @@ const UserDonut = ({ userData }) => {
 
   useEffect(() => {
     if (userData) {
-      axios.get(`${API_URL}/user/wallet/get/${userData.wallet_code}`)
+      axios.get(`${API_URL}/api/user/wallet/get/${userData.wallet_code}`)
         .then((res) => {
           const data = res.data;
           const coinData = data.map((coin) => ({

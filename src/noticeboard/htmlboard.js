@@ -21,7 +21,7 @@ import SearchComponent from '../include/searchresult';
 const ModalWrapper = styled(Dialog)``;
 
 async function htmlboard() {
-  const res = await axios.get(`${API_URL}/html`);
+  const res = await axios.get(`${API_URL}/api/html`);
   console.log(res);
   return res.data;
 }
@@ -137,7 +137,7 @@ function Html() {
     setSelectedRow(row); // 선택한 행의 데이터를 상태에 저장
     setShowModal(true); // 모달 창 열기
     try {
-      await axios.patch(`${API_URL}/html/increase-views/${row.id}`);
+      await axios.patch(`${API_URL}/api/html/increase-views/${row.id}`);
       console.log('행 클릭:', row);
     } catch (error) {
       console.error('Error updating views:', error);
@@ -160,13 +160,13 @@ function Html() {
       if (updateImg) {
         const formData = new FormData();
         formData.append('img_url', updateImg);
-        const imgUploadRes = await axios.post(`${API_URL}/html/images`, formData);
+        const imgUploadRes = await axios.post(`${API_URL}/api/html/images`, formData);
         const data = {
           title: editedTitle,
           content: editedContent,
           img_url: imgUploadRes.data.path,
         };
-        await axios.patch(`${API_URL}/html/update/${selectedRow.id}`, data);
+        await axios.patch(`${API_URL}/api/html/update/${selectedRow.id}`, data);
         console.log("보냄");
         window.location.reload();
       } else {
@@ -176,7 +176,7 @@ function Html() {
           content: editedContent,
           img_url: '',
         };
-        await axios.patch(`${API_URL}/html/update/${selectedRow.id}`, data);
+        await axios.patch(`${API_URL}/api/html/update/${selectedRow.id}`, data);
         console.log("보냄");
         window.location.reload();
       }
@@ -320,7 +320,7 @@ function Html() {
                               <button
                                 id='submit_btn'
                                 onClick={async () => {
-                                  await axios.delete(`${API_URL}/html/delete/${selectedRow.id}`)
+                                  await axios.delete(`${API_URL}/api/html/delete/${selectedRow.id}`)
                                     .then(res => {
                                       console.log(res.data);
                                       window.location.reload();

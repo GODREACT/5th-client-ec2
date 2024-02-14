@@ -24,16 +24,16 @@ function Html_p() {
       if (imgfile) {
         console.log(imgfile);
         formData.append('img_url', imgfile);
-        const imgUploadRes = await axios.post(`${API_URL}/html/images`, formData);
+        const imgUploadRes = await axios.post(`${API_URL}/api/html/images`, formData);
         const data = {
           ...newData,
           img_url: imgUploadRes.data.path,
         };
         console.log(data);
-        await axios.post(`${API_URL}/html`, data);
+        await axios.post(`${API_URL}/api/html`, data);
       } else {
         // 이미지 파일이 없으면 이미지 없이 게시물을 생성할 수 있도록
-        await axios.post(`${API_URL}/html`, newData);
+        await axios.post(`${API_URL}/api/html`, newData);
       }
 
       console.log('성공');

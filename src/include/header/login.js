@@ -12,7 +12,7 @@ function Login() {
 
   const logout = async () => {
     try {
-      await axios.delete(`${API_URL}/auth/logout`, {withCredentials: true})
+      await axios.delete(`${API_URL}/api/auth/logout`, {withCredentials: true})
         .then((res) => {
           document.location.href('/');
         })

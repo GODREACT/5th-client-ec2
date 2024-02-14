@@ -13,7 +13,7 @@ function Customer_notice(){
   const { loading, data: pdata, error } = state;
 
   async function getNotice(id, searchText) {
-    const res = await axios.get(`${API_URL}/notice_detail`);
+    const res = await axios.get(`${API_URL}/api/notice_detail`);
     const filteredData = res.data.filter(item => item.title.includes(searchText));
     return filteredData;
   }
@@ -22,7 +22,7 @@ function Customer_notice(){
     try {
       console.log("조회수 증가+1");
       console.log("id값 :", id);
-      await axios.post(`${API_URL}/notice_detail/${id}`);
+      await axios.post(`${API_URL}/api/notice_detail/${id}`);
     } catch (error) {
       console.error('Error increasing views:', error);
     }

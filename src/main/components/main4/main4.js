@@ -9,7 +9,7 @@ export default function Main4() {
   const [propsData, setpropsData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API_URL}/notice_detail/`)
+    axios.get(`${API_URL}/api/notice_detail/`)
       .then((res) => {
         const data = res.data;
         console.log("전달 받은 notice data: ", data);

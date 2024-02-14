@@ -15,7 +15,7 @@ const NaverLoginButton = () => {
 	}
 	
 	useEffect(()=> {
-		axios.get(`${API_URL}/naverbutton`)
+		axios.get(`${API_URL}/api/naverbutton`)
 		.then(res => {
 			// console.log(res.data);
 			setNaverLoginButton(MyComponent(res.data));
