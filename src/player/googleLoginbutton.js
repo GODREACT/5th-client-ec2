@@ -3,11 +3,9 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from "axios";
 import { API_URL } from "../config/config";
 import { useNavigate } from "react-router";
-import { setCookie } from "./cookies";
-const setTime = 3600000; //1시간
 
 const GoogleLoginButton = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const clientId = '1087352918812-0sng7c0ne7imi2npab9fev8vj2ivvg16.apps.googleusercontent.com'
   return (
     <>
@@ -27,7 +25,9 @@ const GoogleLoginButton = () => {
                   //   secure: '/',
                   //   expires: new Date(Date.now() + setTime),
                   // });
-                  window.location.replace("/")
+                  window.location.replace("/app1")
+                  // navigate('/');
+
                 }
               })
               .catch((err) => {
