@@ -14,7 +14,8 @@ const Exchange = () => {
       </div>
     )
   } else if(!cookie){
-    return window.location.replace('/login');
+    // return window.location.replace('/login');
+    window.location.replace("/app1")
   }
 }
 
