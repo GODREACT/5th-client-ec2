@@ -24,7 +24,8 @@ const KakaoLoginButton =()=>{
 
 		if(res.status == 200){
 			alert("로그인성공!");
-			window.location.replace("/")
+			window.location.replace("/app1")
+      // navigate('/');
 		}
 	}
 

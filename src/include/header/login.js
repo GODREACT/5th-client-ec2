@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './login.css';
 import { getCookie } from "../../player/cookies";
 import { API_URL } from '../../config/config';
 import axios from 'axios';
 
 function Login() {
+  const navigate = useNavigate();
   const cookie = getCookie('user-cookie');
   let context = null;
   let mypage = null;
@@ -14,7 +15,9 @@ function Login() {
     try {
       await axios.delete(`${API_URL}/api/auth/logout`, {withCredentials: true})
         .then((res) => {
-          document.location.href('/');
+          // document.location.href('/');
+          navigate('/main');
+          // window.location.replace("/")
         })
         .catch((err) => {
           console.log(err);

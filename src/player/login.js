@@ -46,7 +46,8 @@ const LoginForm = (props) => {
         .then((res) => {
           if(res.data == '1') {
             alert('로그인 성공');
-            navigate(sessionStorage.getItem('BeforePage') ? sessionStorage.getItem('BeforePage') : '/');
+            // navigate(sessionStorage.getItem('BeforePage') ? sessionStorage.getItem('BeforePage') : '/');
+            navigate('/');
             document.location.reload(true);
           }else if(res.data == '2') {
             id_css.current.style.setProperty('border', '1px solid red')
